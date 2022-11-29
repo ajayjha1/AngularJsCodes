@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body ng-controller="nyctrl">
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address 1</th>
+        <th>Salary PA</th>
+        <th>Kind Salary</th>
+        <th>Date of Joining</th>
+        <th>SmartDepartment</th>
+      </tr>
+      <tr ng-repeat="value in items">
+        <th>{{value.ID}}</th>
+        <th>{{value.Name}}</th>
+        <th>{{value.Address}}</th>
+        <th>{{value.SalaryPA}}</th>
+        <th>{{value.KindSalary}}</th>
+        <th>{{value.DateofJoining}}</th>
+        <th>{{value.SmartDepartment}}</th>
+      </tr>
+    </table>
+  </body>
+</html>
