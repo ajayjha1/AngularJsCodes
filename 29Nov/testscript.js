@@ -15,7 +15,7 @@ ShareApp.controller("testctr",[
             );
         }
 
-        $scope.getItems();
+        $scope.getItems();  
 
         $scope.update() = function(){
             var postData = {

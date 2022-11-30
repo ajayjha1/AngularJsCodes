@@ -8,13 +8,9 @@ App.controller('myCtrl',function($scope){
             "accept": "application/json;odata=verbose",
             "content-Type": "application/json;odata=verbose"
         },
-        success: function (data) {
-            deferred.resolve(data);
-        },
-        error: function (data) {
-            deferred.reject();
-        }
+        
     }
-    );
-    return deferred.promise;
+    ).then(function Success(Data){
+        items = data.d.results;
+    })
 })
