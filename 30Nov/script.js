@@ -48,12 +48,14 @@ ShareApp.controller("testCtr", ["$scope","$http","$timeout","SharewebListService
         }
 
         // Update Existing Data (Patch)
-        $scope.UpdateItem = function (empdata) {
+        $scope.UpdateItem = function (item) {
             var postdata = {
-                __metadata: { type: 'SP.Data.EmpListListItem' },
-                Title: empdata.Title,
+                __metadata: { type: 'SP.Data.TestEmployeeDataListItem' },
+                FirstName: item.FirstName,
+                LastName: item.LastName,
+                Salary: item.Salary,                
             }
-            SharewebListService.UpdateListItemByListId(urlPath, listID, postdata, empdata.Id)
+            SharewebListService.UpdateListItemByListId(urlPath, listID, postdata, item.Id)
                 .then(function (data) {
                     console.log(' update successfully')
                     alert('update successfully')
