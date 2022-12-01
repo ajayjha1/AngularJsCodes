@@ -4,6 +4,9 @@ ShareApp.controller("testCtr", ["$scope","$http","$timeout","SharewebListService
         let listID = "854E5770-C0B7-4AAF-9CA2-5D70E0A2D702";
         let urlPath = _spPageContextInfo.webAbsoluteUrl;
         let listpath = "/getbyid('" + listID + "')/items?$select=Id,FirstName,LastName,Salary,Department/Title&$expand=Department";
+
+        //Get Data
+
         $scope.getItems = function () {
             SharewebListService.getRequest(urlPath, listpath).then(
                 function (data) {
@@ -17,15 +20,14 @@ ShareApp.controller("testCtr", ["$scope","$http","$timeout","SharewebListService
         };
         $scope.getItems();
 
-        $scope.lookuparr = [];
-        lookup
+        //Post Data
         $scope.update = function () {
             var postData = {
             __metadata: {'type': "SP.Data.TestEmployeeDataListItem"},
             "FirstName": $scope.FirstName,
             "LastName":$scope.LastName,
             "Salary":$scope.Salary,
-            "DepartmentId": {"results": $scope.value}, // "DepartmentId": 7,
+            // "DepartmentId": {"results": $scope.value}, // "DepartmentId": 7,
         }
         
         SharewebListService.AddListItemByListId(urlPath, listID, postData)
@@ -44,5 +46,20 @@ ShareApp.controller("testCtr", ["$scope","$http","$timeout","SharewebListService
             });
 
         }
-    },
-]);
+
+        // Update Existing Data (Patch)
+        $scope.UpdateItem = function (empdata) {
+            var postdata = {
+                __metadata: { type: 'SP.Data.EmpListListItem' },
+                Title: empdata.Title,
+            }
+            SharewebListService.UpdateListItemByListId(urlPath, listID, postdata, empdata.Id)
+                .then(function (data) {
+                    console.log(' update successfully')
+                    alert('update successfully')
+                },
+                    function (error) {
+                        console.log('error')
+                    });
+        }
+    }]);

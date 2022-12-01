@@ -20,15 +20,18 @@
             <th>Last Name</th>
             <th>Salary</th>
             <th>Department(Lookup)</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="item in items">
-            <td>{{item.Id}}</td>
-            <td>{{item.FirstName}}</td>
-            <td>{{item.LastName}}</td>
-            <td>{{item.Salary}}</td>
-            <td>{{item.Department.Title}}</td>
+            <td>{{item.Id}} </td> //<input type="text" id="Title" name="Title" ng-model="empdata.Title">
+            <td>{{item.FirstName}}<input type="text" id="FirstName" name="Title" ng-model="item.FirstName"></td>
+            <td>{{item.LastName}}<input type="text" id="LastName" name="Title" ng-model="item.LastName"></td>
+            <td>{{item.Salary}}<input type="text" id="Salary" name="Salary" ng-model="item.Salary"></td>
+            <td>{{item.Department.Title}}<input type="text" id="Salary" name="Salary" ng-model="item.Department.Title"></td>
+            <td><button type="button" onclick="window.location.href=''">Edit</button></td>
+            <button type="submit" ng-click="UpdateItem(item)">Update</button>
         </tr>
     </tbody>
    </table>
