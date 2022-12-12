@@ -1,5 +1,5 @@
 ShareApp.controller("testCtr", ["$scope","$http","$timeout","SharewebListService","SharewebCommonFactoryService","GlobalConstants",
-    function ($scope,$http,$timeout,SharewebListService,SharewebCommonFactoryService,lobalConstants) 
+    function ($scope,$http,$timeout,SharewebListService,SharewebCommonFactoryService,GlobalConstants) 
     {
         let listID = "854E5770-C0B7-4AAF-9CA2-5D70E0A2D702";
         let urlPath = _spPageContextInfo.webAbsoluteUrl;
